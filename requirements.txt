@@ -1,0 +1,23 @@
+# Core Data Processing
+pandas==2.1.0
+numpy==1.24.3
+
+# Database
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.23
+
+# Data Download
+kaggle==1.5.16
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1
+
+# Jupyter
+jupyter==1.0.0
+ipython==8.15.0
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Testing
+pytest==7.4.0

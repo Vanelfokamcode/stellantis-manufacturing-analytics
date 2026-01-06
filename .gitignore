@@ -1,0 +1,40 @@
+# Python
+venv_stellantis/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+*.ipynb_checkpoints/
+
+# Data files (too large for git)
+data/raw/*.csv
+data/raw/*.data
+data/processed/
+*.pkl
+*.joblib
+
+# Environment & Config
+.env
+config/*.yaml
+!config/*_example.yaml
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Airflow
+airflow_venv/
+dbt_venv/
+airflow/
+
+# Kaggle credentials
+.kaggle/
