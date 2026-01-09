@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: int_production_enriched
+    description: "Production data enriched with KPIs, classifications, and cost calculations"
+    columns:
+      - name: production_line
+        description: "Production line identifier"
+        tests:
+          - not_null
+      - name: date
+        description: "Production date"
+        tests:
+          - not_null
+      - name: oee_percent
+        description: "Overall Equipment Effectiveness percentage"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+      - name: oee_category
+        description: "OEE performance classification"
+        tests:
+          - accepted_values:
+              values: ['EXCELLENT', 'GOOD', 'ACCEPTABLE', 'NEEDS_ATTENTION']
+      - name: productivity_score
+        description: "Weighted productivity score (0-100)"
+      - name: total_loss
+        description: "Total estimated cost loss (defect + downtime)"
+
+  - name: int_oee_breakdown
+    description: "Detailed OEE component analysis (Availability × Performance × Quality)"
+    columns:
+      - name: availability_percent
+        description: "Equipment availability (uptime percentage)"
+      - name: performance_percent
+        description: "Performance efficiency (actual vs target production)"
+      - name: quality_percent
+        description: "Quality rate (good units / total units)"
+      - name: primary_bottleneck
+        description: "Primary constraint limiting OEE"
+        tests:
+          - accepted_values:
+              values: ['AVAILABILITY', 'PERFORMANCE', 'QUALITY', 'NONE']
+
+  - name: int_maintenance_features
+    description: "Machine health indicators and failure risk assessment"
+    columns:
+      - name: unit_device_id
+        description: "Unique device identifier"
+        tests:
+          - not_null
+      - name: failure_risk_score
+        description: "Calculated failure risk score (0-100)"
+      - name: failure_type
+        description: "Type of failure if occurred"
+      - name: wear_status
+        description: "Tool wear status classification"
+        tests:
+          - accepted_values:
+              values: ['LOW', 'MODERATE', 'HIGH', 'CRITICAL']
+
+  - name: int_quality_aggregated
+    description: "Quality sensor measurements with anomaly detection"
+    columns:
+      - name: row_id
+        description: "Unique quality record ID"
+        tests:
+          - unique
+          - not_null
+      - name: quality_status
+        description: "Pass/Fail status"
+        tests:
+          - accepted_values:
+              values: ['PASS', 'FAIL', 'UNKNOWN']
+      - name: measurement_confidence
+        description: "Confidence level based on sensor variance"
+      - name: is_anomaly
+        description: "Flag for anomalous sensor readings"

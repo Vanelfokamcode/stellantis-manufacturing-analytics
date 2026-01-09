@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: staging
+    description: "Raw staging tables from CSV loads (Week 3)"
+    database: stellantis_manufacturing
+    schema: staging
+    tables:
+      - name: stg_production_metrics
+        description: "Production metrics from manufacturing lines"
+        columns:
+          - name: production_line
+            description: "Production line identifier"
+          - name: date
+            description: "Production date"
+          - name: shift
+            description: "Shift name (Morning/Afternoon/Night)"
+          - name: units_produced
+            description: "Total units produced"
+          - name: oee_percent
+            description: "Overall Equipment Effectiveness %"
+      
+      - name: stg_maintenance
+        description: "Maintenance records and downtime"
+        columns:
+          - name: production_line
+          - name: date
+          - name: maintenance_type
+          - name: downtime_hours
+      
+      - name: stg_quality
+        description: "Quality control and defects"
+        columns:
+          - name: production_line
+          - name: date
+          - name: defects
+          - name: defect_type
