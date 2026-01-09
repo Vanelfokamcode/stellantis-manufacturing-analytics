@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_vehicle_scd
+    description: "Vehicle dimension with SCD Type 2 structure for tracking changes over time"
+    config:
+      materialized: table
+    columns:
+      - name: vehicle_key
+        description: "Surrogate key for vehicle"
+        tests:
+          - unique
+          - not_null
+      - name: make
+        description: "Vehicle manufacturer"
+      - name: model
+        description: "Vehicle model name"
+      - name: year
+        description: "Model year"
+      - name: msrp
+        description: "Manufacturer's Suggested Retail Price"
+      - name: valid_from
+        description: "Start date when this record became effective"
+        tests:
+          - not_null
+      - name: valid_to
+        description: "End date when record was superseded (NULL = currently valid)"
+      - name: is_current
+        description: "Flag indicating if this is the current version"
+        tests:
+          - not_null

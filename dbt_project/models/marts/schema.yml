@@ -1,0 +1,163 @@
+version: 2
+
+models:
+  - name: mart_executive_kpis
+    description: "Daily executive dashboard - ONE row per day with factory-wide KPIs"
+    config:
+      materialized: table
+    columns:
+      - name: date
+        description: "Production date"
+        tests:
+          - not_null
+          - unique
+      - name: total_units_produced
+        description: "Total units produced across all lines"
+        tests:
+          - not_null
+      - name: avg_oee
+        description: "Average OEE across all production lines"
+        tests:
+          - not_null
+      - name: factory_health_status
+        description: "Overall factory health classification"
+        tests:
+          - accepted_values:
+              values: ['EXCELLENT', 'GOOD', 'ACCEPTABLE', 'CRITICAL']
+      - name: total_loss
+        description: "Total cost loss (defects + downtime)"
+      - name: net_revenue
+        description: "Revenue after losses"
+
+  - name: mart_line_performance
+    description: "Production line rankings and performance comparison"
+    config:
+      materialized: table
+    columns:
+      - name: production_line
+        description: "Production line identifier"
+        tests:
+          - not_null
+          - unique
+      - name: avg_oee
+        description: "Average OEE for this line"
+        tests:
+          - not_null
+      - name: oee_rank
+        description: "Ranking by OEE (1 = best)"
+      - name: overall_performance_score
+        description: "Weighted performance score (0-100)"
+      - name: priority_level
+        description: "Action priority based on performance"
+        tests:
+          - accepted_values:
+              values: 
+                - 'CRITICAL - Immediate Action'
+                - 'HIGH - Schedule Review'
+                - 'MEDIUM - Monitor Closely'
+                - 'LOW - Maintain Performance'
+      - name: potential_revenue_gain
+        description: "Revenue opportunity if line matches best performer"
+
+  - name: mart_shift_analysis
+    description: "Shift performance comparison and optimization insights"
+    config:
+      materialized: table
+    columns:
+      - name: shift
+        description: "Shift name (Morning/Afternoon/Night)"
+        tests:
+          - not_null
+          - unique
+      - name: avg_oee
+        description: "Average OEE for this shift"
+        tests:
+          - not_null
+      - name: units_per_hour
+        description: "Productivity rate (units/hour)"
+      - name: performance_score
+        description: "Overall shift performance score"
+      - name: recommendation
+        description: "Action recommendation for shift optimization"
+        tests:
+          - accepted_values:
+              values:
+                - 'BENCHMARK - Use as training example'
+                - 'GOOD - Minor optimizations possible'
+                - 'REVIEW - Significant improvement needed'
+                - 'CRITICAL - Immediate intervention required'
+
+  - name: mart_maintenance_overview
+    description: "Machine health overview and predictive maintenance recommendations"
+    config:
+      materialized: table
+    columns:
+      - name: product_id
+        description: "Machine/product identifier"
+        tests:
+          - not_null
+          - unique
+      - name: risk_category
+        description: "Failure risk level"
+        tests:
+          - accepted_values:
+              values: ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']
+      - name: days_until_maintenance
+        description: "Recommended days until maintenance"
+      - name: action_recommendation
+        description: "Specific maintenance action required"
+      - name: potential_cost_savings
+        description: "Cost savings from preventive vs emergency maintenance"
+      - name: latest_tool_wear
+        description: "Most recent tool wear reading (minutes)"
+
+
+  - name: mart_quality_trends
+    description: "Quality trends analysis with anomaly detection"
+    config:
+      materialized: table
+    columns:
+      - name: date
+        description: "Production date"
+        tests:
+          - not_null
+      - name: production_line
+        description: "Production line identifier"
+      - name: defect_rate_percent
+        description: "Defect rate percentage"
+      - name: trend_direction
+        description: "Quality trend (IMPROVING/STABLE/WORSENING)"
+        tests:
+          - accepted_values:
+              values: ['IMPROVING', 'STABLE', 'WORSENING']
+      - name: is_anomaly
+        description: "Flag for anomalous quality readings"
+      - name: alert_level
+        description: "Alert severity level"
+
+  - name: mart_cost_analysis
+    description: "Cost analysis and ROI opportunities"
+    config:
+      materialized: table
+    columns:
+      - name: date
+        description: "Analysis date"
+        tests:
+          - not_null
+          - unique
+      - name: total_revenue
+        description: "Total estimated revenue"
+      - name: total_loss
+        description: "Total cost losses"
+      - name: primary_cost_driver
+        description: "Main source of losses (DEFECTS/DOWNTIME/BALANCED)"
+        tests:
+          - accepted_values:
+              values: ['DEFECTS', 'DOWNTIME', 'BALANCED']
+      - name: cost_severity
+        description: "Cost severity level"
+        tests:
+          - accepted_values:
+              values: ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']
+      - name: annual_roi_opportunity_50pct_reduction
+        description: "Estimated annual ROI if losses reduced by 50%"
