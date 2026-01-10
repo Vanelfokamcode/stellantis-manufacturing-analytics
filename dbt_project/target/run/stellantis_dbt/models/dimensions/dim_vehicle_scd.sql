@@ -2,11 +2,7 @@
   
     
 
-<<<<<<< HEAD
-  create  table "stellantis_manufacturing"."dbt_dev_dimensions"."dim_vehicle_scd__dbt_tmp"
-=======
   create  table "stellantis_manufacturing"."dbt_dev"."dim_vehicle_scd__dbt_tmp"
->>>>>>> week4/day25-advanced-marts-scd
   
   
     as
