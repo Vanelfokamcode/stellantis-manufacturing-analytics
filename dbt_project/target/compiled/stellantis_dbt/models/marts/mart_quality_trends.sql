@@ -19,7 +19,7 @@ with daily_quality as (
         count(*) filter (where quality_category = 'ACCEPTABLE') as acceptable_count,
         count(*) filter (where quality_category = 'POOR') as poor_count
         
-    from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+    from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
     group by date, production_line, shift
 ),
 

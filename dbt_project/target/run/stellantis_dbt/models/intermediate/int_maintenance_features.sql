@@ -1,5 +1,5 @@
 
-  create view "stellantis_manufacturing"."dbt_dev_intermediate"."int_maintenance_features__dbt_tmp"
+  create view "stellantis_manufacturing"."dbt_prod_intermediate"."int_maintenance_features__dbt_tmp"
     
     
   as (
@@ -7,7 +7,7 @@
 -- Machine health indicators and failure risk assessment
 
 with maintenance as (
-    select * from "stellantis_manufacturing"."dbt_dev_staging"."stg_maintenance"
+    select * from "stellantis_manufacturing"."dbt_prod_staging"."stg_maintenance"
 ),
 
 features as (

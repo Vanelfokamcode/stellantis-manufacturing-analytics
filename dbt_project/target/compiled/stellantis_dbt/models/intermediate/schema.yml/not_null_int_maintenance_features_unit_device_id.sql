@@ -5,7 +5,7 @@
 
 
 select unit_device_id
-from "stellantis_manufacturing"."dbt_dev_intermediate"."int_maintenance_features"
+from "stellantis_manufacturing"."dbt_prod_intermediate"."int_maintenance_features"
 where unit_device_id is null
 
 

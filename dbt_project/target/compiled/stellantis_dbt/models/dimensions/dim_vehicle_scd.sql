@@ -15,7 +15,7 @@ with source_data as (
             when vehicle_make like '%Jeep%' then 35000
             else 30000
         end as msrp
-    from "stellantis_manufacturing"."dbt_dev_staging"."stg_production"
+    from "stellantis_manufacturing"."dbt_prod_staging"."stg_production"
     group by vehicle_make, vehicle_model, vehicle_year
 )
 

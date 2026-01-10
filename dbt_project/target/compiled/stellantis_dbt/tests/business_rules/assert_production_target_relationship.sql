@@ -10,5 +10,5 @@ select
     units_target,
     (units_produced::float / nullif(units_target, 0) * 100) as achievement_percent,
     'Production exceeds 150% of target - possible error' as failure_reason
-from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
 where units_produced > (units_target * 1.5)

@@ -8,5 +8,5 @@ select
     shift,
     downtime_hours,
     'Downtime exceeds shift duration' as failure_reason
-from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
 where downtime_hours > 8.0

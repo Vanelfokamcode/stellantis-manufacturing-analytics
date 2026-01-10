@@ -8,7 +8,7 @@ with all_values as (
         trend_direction as value_field,
         count(*) as n_records
 
-    from "stellantis_manufacturing"."dbt_dev_marts"."mart_quality_trends"
+    from "stellantis_manufacturing"."dbt_prod_marts"."mart_quality_trends"
     group by trend_direction
 
 )

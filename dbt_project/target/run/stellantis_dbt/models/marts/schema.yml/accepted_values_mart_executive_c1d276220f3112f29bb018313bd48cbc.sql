@@ -13,7 +13,7 @@ with all_values as (
         factory_health_status as value_field,
         count(*) as n_records
 
-    from "stellantis_manufacturing"."dbt_dev_marts"."mart_executive_kpis"
+    from "stellantis_manufacturing"."dbt_prod_marts"."mart_executive_kpis"
     group by factory_health_status
 
 )

@@ -8,7 +8,7 @@ with all_values as (
         recommendation as value_field,
         count(*) as n_records
 
-    from "stellantis_manufacturing"."dbt_dev_marts"."mart_shift_analysis"
+    from "stellantis_manufacturing"."dbt_prod_marts"."mart_shift_analysis"
     group by recommendation
 
 )

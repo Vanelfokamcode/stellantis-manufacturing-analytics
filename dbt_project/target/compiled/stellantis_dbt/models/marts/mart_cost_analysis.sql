@@ -26,7 +26,7 @@ with production_costs as (
         oee_percent,
         oee_category
         
-    from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+    from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
 ),
 
 aggregated_costs as (

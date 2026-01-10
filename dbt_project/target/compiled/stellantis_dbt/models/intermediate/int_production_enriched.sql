@@ -2,7 +2,7 @@
 -- Production data enriched with business logic and classifications
 
 with production as (
-    select * from "stellantis_manufacturing"."dbt_dev_staging"."stg_production"
+    select * from "stellantis_manufacturing"."dbt_prod_staging"."stg_production"
 ),
 
 enriched as (

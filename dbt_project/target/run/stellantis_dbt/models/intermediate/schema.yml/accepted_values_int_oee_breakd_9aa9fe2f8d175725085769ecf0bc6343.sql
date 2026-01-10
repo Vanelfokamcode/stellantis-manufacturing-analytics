@@ -13,7 +13,7 @@ with all_values as (
         primary_bottleneck as value_field,
         count(*) as n_records
 
-    from "stellantis_manufacturing"."dbt_dev_intermediate"."int_oee_breakdown"
+    from "stellantis_manufacturing"."dbt_prod_intermediate"."int_oee_breakdown"
     group by primary_bottleneck
 
 )

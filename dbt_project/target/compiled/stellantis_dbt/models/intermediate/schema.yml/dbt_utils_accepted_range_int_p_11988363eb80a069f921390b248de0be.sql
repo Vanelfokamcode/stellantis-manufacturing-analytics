@@ -2,7 +2,7 @@
 
 with meet_condition as(
   select *
-  from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+  from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
 ),
 
 validation_errors as (

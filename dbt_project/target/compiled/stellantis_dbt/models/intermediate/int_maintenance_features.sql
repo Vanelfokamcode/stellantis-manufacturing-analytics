@@ -2,7 +2,7 @@
 -- Machine health indicators and failure risk assessment
 
 with maintenance as (
-    select * from "stellantis_manufacturing"."dbt_dev_staging"."stg_maintenance"
+    select * from "stellantis_manufacturing"."dbt_prod_staging"."stg_maintenance"
 ),
 
 features as (

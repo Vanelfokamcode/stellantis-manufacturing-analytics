@@ -13,7 +13,7 @@ with all_values as (
         cost_severity as value_field,
         count(*) as n_records
 
-    from "stellantis_manufacturing"."dbt_dev_marts"."mart_cost_analysis"
+    from "stellantis_manufacturing"."dbt_prod_marts"."mart_cost_analysis"
     group by cost_severity
 
 )

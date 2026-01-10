@@ -13,7 +13,7 @@ with all_values as (
         oee_category as value_field,
         count(*) as n_records
 
-    from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+    from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
     group by oee_category
 
 )

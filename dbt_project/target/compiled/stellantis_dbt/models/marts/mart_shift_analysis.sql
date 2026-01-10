@@ -40,7 +40,7 @@ with shift_aggregated as (
         count(*) filter (where oee_category = 'GOOD') as good_shifts,
         count(*) filter (where oee_category = 'NEEDS_ATTENTION') as poor_shifts
         
-    from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+    from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
     group by shift
 ),
 

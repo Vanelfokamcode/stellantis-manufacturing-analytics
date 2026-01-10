@@ -1,5 +1,5 @@
 
-  create view "stellantis_manufacturing"."dbt_dev_intermediate"."int_quality_aggregated__dbt_tmp"
+  create view "stellantis_manufacturing"."dbt_prod_intermediate"."int_quality_aggregated__dbt_tmp"
     
     
   as (
@@ -7,7 +7,7 @@
 -- Quality metrics aggregated for analysis
 
 with quality as (
-    select * from "stellantis_manufacturing"."dbt_dev_staging"."stg_quality"
+    select * from "stellantis_manufacturing"."dbt_prod_staging"."stg_quality"
 ),
 
 aggregated as (

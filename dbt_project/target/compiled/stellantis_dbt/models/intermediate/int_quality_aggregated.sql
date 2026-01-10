@@ -2,7 +2,7 @@
 -- Quality metrics aggregated for analysis
 
 with quality as (
-    select * from "stellantis_manufacturing"."dbt_dev_staging"."stg_quality"
+    select * from "stellantis_manufacturing"."dbt_prod_staging"."stg_quality"
 ),
 
 aggregated as (

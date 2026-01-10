@@ -3,7 +3,7 @@
 -- OEE = Availability × Performance × Quality
 
 with production as (
-    select * from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+    select * from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
 ),
 
 oee_calc as (

@@ -1,5 +1,5 @@
 
-  create view "stellantis_manufacturing"."dbt_dev_staging"."stg_production__dbt_tmp"
+  create view "stellantis_manufacturing"."dbt_prod_staging"."stg_production__dbt_tmp"
     
     
   as (

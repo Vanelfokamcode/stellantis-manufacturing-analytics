@@ -32,7 +32,7 @@ with daily_production as (
         sum(total_loss) as total_loss,
         sum(estimated_revenue) as total_revenue
         
-    from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+    from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
     group by date
 ),
 

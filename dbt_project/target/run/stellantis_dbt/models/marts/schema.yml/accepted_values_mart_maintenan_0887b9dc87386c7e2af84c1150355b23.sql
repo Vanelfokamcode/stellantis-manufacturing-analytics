@@ -13,7 +13,7 @@ with all_values as (
         risk_category as value_field,
         count(*) as n_records
 
-    from "stellantis_manufacturing"."dbt_dev_marts"."mart_maintenance_overview"
+    from "stellantis_manufacturing"."dbt_prod_marts"."mart_maintenance_overview"
     group by risk_category
 
 )

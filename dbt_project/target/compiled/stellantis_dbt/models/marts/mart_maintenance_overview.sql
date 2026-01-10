@@ -3,7 +3,7 @@
 -- Answers: "Which machines need attention? When will they fail?"
 
 with maintenance_features as (
-    select * from "stellantis_manufacturing"."dbt_dev_intermediate"."int_maintenance_features"
+    select * from "stellantis_manufacturing"."dbt_prod_intermediate"."int_maintenance_features"
 ),
 
 machine_aggregated as (

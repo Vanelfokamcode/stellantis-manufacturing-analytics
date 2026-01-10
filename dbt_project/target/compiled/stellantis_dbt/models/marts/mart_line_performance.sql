@@ -39,7 +39,7 @@ with line_aggregated as (
         mode() within group (order by oee_category) as typical_oee_category,
         mode() within group (order by quality_category) as typical_quality_category
         
-    from "stellantis_manufacturing"."dbt_dev_intermediate"."int_production_enriched"
+    from "stellantis_manufacturing"."dbt_prod_intermediate"."int_production_enriched"
     group by production_line
 ),
 
