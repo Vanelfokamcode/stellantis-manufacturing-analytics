@@ -38,3 +38,50 @@ airflow/
 
 # Kaggle credentials
 .kaggle/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv_stellantis/
+*.egg-info/
+.pytest_cache/
+
+# dbt
+dbt_project/target/
+dbt_project/dbt_packages/
+dbt_project/logs/
+
+# Airflow
+airflow_dags/__pycache__/
+logs/
+airflow.db
+airflow.cfg
+
+# Environment
+.env
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Power BI
+*.pbix
+dashboards/*.pbix
+
+# Data (don't commit large datasets)
+data/raw/*.csv
+data/processed/*.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+config/*.yaml
+!config/example.yaml
