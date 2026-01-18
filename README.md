@@ -63,7 +63,7 @@ stellantis-manufacturing-analytics/
 ## 🚀 Quick Start
 ```bash
 # Clone repository
-git clone https://github.com/[your-username]/stellantis-manufacturing-analytics.git
+git clone https://github.com/Vanelfokamcode/stellantis-manufacturing-analytics.git
 
 # Create virtual environment
 python3 -m venv venv_stellantis
